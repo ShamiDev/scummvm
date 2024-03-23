@@ -26,6 +26,31 @@
 #include "common/ustr.h"
 #include "common/platform.h"
 
+#include "gui/dialog.h"
+
+namespace GUI {
+
+class CommandSender;
+class TabWidget;
+
+/**
+ * Multitab help dialog
+ */
+class HelpDialog : public Dialog {
+public:
+	HelpDialog();
+
+	void handleCommand(CommandSender *sender, uint32 cmd, uint32 data) override;
+
+private:
+	void addTabs(const char * const *tabs);
+	TabWidget *_tab;
+};
+
+
+} // End of namespace GUI
+
+
 namespace Scumm {
 
 #define HELP_NUM_LINES 15
